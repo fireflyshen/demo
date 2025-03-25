@@ -1,6 +1,7 @@
 <template>
   <ContextMenu :menuItems>
-    <div style="width: 200px; height:200px; background-color: pink;">hello</div>  </ContextMenu>
+    <div style="width: 800px; height: 800px; background-color: pink">hello</div>
+  </ContextMenu>
 </template>
 
 <script setup lang="ts">

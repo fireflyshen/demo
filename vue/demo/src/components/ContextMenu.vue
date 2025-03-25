@@ -1,5 +1,5 @@
 <template>
-  <div ref="container">
+  <div ref="container" class="container">
     <slot></slot>
     <div class="menu" v-if="visible"  :style="{ top: `${y + 5}px`, left: `${x + 10}px` }">
       <ul
@@ -68,6 +68,11 @@ body {
   font-family: "Inter", sans-serif;
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
+}
+
+.container {
+  display: flex;
+  width: max-content;
 }
 
 .menu {

@@ -20,8 +20,7 @@
       <MenuItem
         v-for="(child, index) in item.children"
         :key="index"
-        :item="child"
-        
+        :item="child" 
       />
     </ul>
   </li>
