@@ -1,4 +1,4 @@
-function bubbleSort(nums: number[]): void {
+function bubble_Sort(nums: number[]): void {
   for (let i = nums.length - 1; i > 0; i--) {
     // 优化
     let flag = false;

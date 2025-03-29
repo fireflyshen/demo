@@ -1,5 +1,5 @@
-function merge(left, right) {
-    let result = [];
+function merge(left: number[], right: number[]): number[] {
+    let result: number[] = [];
     let i = 0, j = 0;
 
     // 比较并合并两个数组
@@ -17,11 +17,8 @@ function merge(left, right) {
     return result.concat(left.slice(i), right.slice(j));
 }
 
-/**
- * 
- * @param {Array} arr 
- */
-function mergeSort(arr) {
+
+function mergeSort(arr: Array<number>): number[] {
 
     if (arr.length <= 1) {
         return arr;
