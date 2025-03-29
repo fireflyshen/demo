@@ -5,7 +5,7 @@
  * ***************************************************************************/
 
 
-let bitmap = new Uint8Array(1);
+let bitmap:Uint8Array = new Uint8Array(1);
 
 /**
  * @description 设置对应的位数为1 

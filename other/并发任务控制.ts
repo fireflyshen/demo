@@ -1,3 +1,9 @@
+/*!***********************************************************************
+ * @fileoverview 并发任务控制
+ * @author firefly
+ * @date 2025-03-11 
+ * ***********************************************************************/
+
 function timeout(time: number): Promise<void> {
     return new Promise((res) => {
         setTimeout(res, time);
