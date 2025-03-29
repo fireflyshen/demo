@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import type { Ref } from "vue";
 import { ref } from "vue";
-import { useContextMenu } from "../hooks/contextMenu";
+import { useContextMenu } from "../../hooks/contextMenu";
 import MenuItem from "./MenuItem.vue";
 const container: Ref<HTMLElement | null> = ref<HTMLElement | null>(null);
 
