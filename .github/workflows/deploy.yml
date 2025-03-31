@@ -17,6 +17,9 @@ jobs:
         include:
           - path: front/Canvas/exec/dynamicPointAndLine
             name: dynamic-point-and-line
+
+          - path: front/Canvas/exec/simpleCanvasGraph
+            name: simple-canvas-graph
          
     steps:
       - uses: actions/checkout@v4
