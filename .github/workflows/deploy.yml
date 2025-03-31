@@ -8,6 +8,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    name: Deploy
+    permissions:
+      contents: read
+      deployments: write
     strategy:
       matrix:
         include:
@@ -29,7 +33,6 @@ jobs:
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy ${{ matrix.path }}/dist --project-name=${{ matrix.name }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN  }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID  }}
 
