@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - path: front/Canvas/exec/dynamicPointAndLine
+          - path: /demo/front/Canvas/exec/dynamicPointAndLine
             name: dynamic-point-and-line
          
     steps:
@@ -29,4 +29,3 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy ${{matrix.path}}/dist --project-name=${{ matrix.name }}
 
-          
