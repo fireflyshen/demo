@@ -13,6 +13,7 @@ jobs:
       contents: read
       deployments: write
     strategy:
+      # 通过矩阵来指定多个项目的部署
       matrix:
         include:
           - path: front/Canvas/exec/dynamicPointAndLine
@@ -20,14 +21,13 @@ jobs:
 
           - path: front/Canvas/exec/simpleCanvasGraph
             name: simple-canvas-graph
-         
     steps:
       - uses: actions/checkout@v4
 
-  
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
+          # Wrangler cloudflare api token，存储到了仓库的secrets中
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy ${{matrix.path}}/dist --project-name=${{ matrix.name }}

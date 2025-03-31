@@ -1,5 +1,3 @@
-
-
 import { init } from "./script/index.ts";
 
 window.addEventListener('DOMContentLoaded', () => {

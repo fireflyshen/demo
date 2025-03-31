@@ -25,6 +25,7 @@ class Point {
     if (this.y <= 0 || this.y >= canvasHeight) this.dy = -this.dy;
   }
 }
+// 封装动画逻辑
 export class CustomAnimation {
   private canvas: HTMLCanvasElement;
   private context: CanvasRenderingContext2D;
@@ -87,14 +88,9 @@ export class CustomAnimation {
   }
 
   private animate = () => {
-    console.log("start");
     this.draw();
-    if (this.animationId === 1000) {
-      cancelAnimationFrame(this.animationId);
-      this.animationId = null;
-    }
     this.animationId = requestAnimationFrame(this.animate);
-    console.log("end");
+
   };
 
   // 启动动画
@@ -116,5 +112,3 @@ export class CustomAnimation {
 function calculateOpacity(distance: number, maxDistance: number): number {
   return Math.max(0, 1 - distance / maxDistance);
 }
-// 封装动画逻辑
-
