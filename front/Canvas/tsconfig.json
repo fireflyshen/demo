@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "ESNext", // 使用 ES2022 模块
+    "target": "ESNext", // 目标是 ES2020
+    "moduleResolution": "classic", // 使用 Node 风格的模块解析
+    "esModuleInterop": true, // 启用 ES 模块与 CommonJS 模块互操作性
+    "importHelpers": true, // 使用 TypeScript 的辅助函数
+    "strict": true, // 启用严格模式
+    "skipLibCheck": true, // 跳过库文件类型检查
+    "outDir": "./dist", // 输出目录
+    "baseUrl": "./", // 设置基础路径
+    "paths": {
+      "*": ["node_modules/*", "src/*"] // 模块路径别名
+    }
+  }
+}

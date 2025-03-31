@@ -17,3 +17,4 @@ function selectionSort(nums: number[]): void {
 
 
 selectionSort([4,1,3,1,5,2])
+

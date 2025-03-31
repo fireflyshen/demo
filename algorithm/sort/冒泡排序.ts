@@ -17,4 +17,4 @@ function bubble_Sort(nums: number[]): void {
 }
 
 
-bubbleSort([4,1,3,1,5,2])
+bubble_Sort([4,1,3,1,5,2])
