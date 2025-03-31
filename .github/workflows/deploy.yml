@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - path: ./front/Canvas/dynamicPointAndLine
+            name: dynamic-point-and-line
+          - path: ./front/Canvas/simpleCanvasGraph
+            name: simple-canvas-graph
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm install
+        working-directory: ${{ matrix.path }}
+
+      - name: Build
+        run: npm run build
+        working-directory: ${{ matrix.path }}
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: A_tbtZHnOiGAdjKrQ_u_VckC5OgVAxBa4m8d1ABW
+          accountId: 05937daaf6b13661406674f535419cf4
+          command: pages deploy ${{ matrix.path }}/dist --project-name=${{ matrix.name }}
