@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - path: /front/Canvas/exec/dynamicPointAndLine
+          - path: front/Canvas/exec/dynamicPointAndLine
             name: dynamic-point-and-line
          
     steps:
