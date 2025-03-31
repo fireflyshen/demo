@@ -25,14 +25,7 @@ class Point {
     if (this.y <= 0 || this.y >= canvasHeight) this.dy = -this.dy;
   }
 }
-
-// 计算透明度函数
-function calculateOpacity(distance: number, maxDistance: number): number {
-  return Math.max(0, 1 - distance / maxDistance);
-}
-
-// 封装动画逻辑
-class CustomAnimation {
+export class CustomAnimation {
   private canvas: HTMLCanvasElement;
   private context: CanvasRenderingContext2D;
   private points: Point[] = [];
@@ -119,7 +112,9 @@ class CustomAnimation {
     }
   }
 }
-const htmlCanvas = document.getElementById("canvas") as HTMLCanvasElement;
-// 启动动画
-const animation = new CustomAnimation(htmlCanvas, 20);
-animation.start();
+// 计算透明度函数
+function calculateOpacity(distance: number, maxDistance: number): number {
+  return Math.max(0, 1 - distance / maxDistance);
+}
+// 封装动画逻辑
+

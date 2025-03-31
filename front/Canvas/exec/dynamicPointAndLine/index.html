@@ -1,28 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Canvas Example</title>
-    <style>
-      /* 让 canvas 容器自适应屏幕尺寸 */
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        height: 100%; /* 确保 body 和 html 填充整个视口 */
-      }
 
-      canvas {
-        display: block; /* 避免 canvas 元素被默认设置为 inline-block 导致额外的空隙 */
-        width: 100vw; /* 设置 canvas 宽度为 100% 视口宽度 */
-        height: 100vh; /* 设置 canvas 高度为 100% 视口高度 */
-        background-color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <canvas id="canvas"></canvas>
-    <script src="./index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>动态线条背景</title>
+
+  <style>
+    /* 让 canvas 容器自适应屏幕尺寸 */
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      /* 确保 body 和 html 填充整个视口 */
+    }
+
+    canvas {
+      display: block;
+      /* 避免 canvas 元素被默认设置为 inline-block 导致额外的空隙 */
+      width: 100vw;
+      /* 设置 canvas 宽度为 100% 视口宽度 */
+      height: 100vh;
+      /* 设置 canvas 高度为 100% 视口高度 */
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
