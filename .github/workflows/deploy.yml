@@ -11,9 +11,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - path: ./front/Canvas/dynamicPointAndLine
+          - path: front/Canvas/dynamicPointAndLine
             name: dynamic-point-and-line
-          - path: ./front/Canvas/simpleCanvasGraph
+          - path: front/Canvas/simpleCanvasGraph
             name: simple-canvas-graph
     steps:
       - uses: actions/checkout@v4
