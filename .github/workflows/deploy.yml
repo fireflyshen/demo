@@ -33,7 +33,6 @@ jobs:
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: ${{ matrix.name }}
-          directory: ${{ matrix.path }}/dist  # 确保这个路径是你的构建输出目录
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN  }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID  }}
+          command: pages deploy ${{matrix.path}}/dist --project-name=${{ matrix.name }}
