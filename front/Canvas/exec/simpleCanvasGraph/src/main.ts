@@ -12,7 +12,6 @@ window.addEventListener('DOMContentLoaded', () => {
 `
 
     init();
-
 })
 
 
