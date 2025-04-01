@@ -122,7 +122,8 @@ function drawSecondHand(ctx: CanvasRenderingContext2D, seconds: number) {
   ctx.translate(100, 100);
   ctx.rotate(angle);
   ctx.beginPath();
-  ctx.moveTo(0, 10);  // 秒针稍微延伸到中心
+  // 往下挪一点
+  ctx.moveTo(0, 10);
   ctx.lineTo(0, -60);
   ctx.lineWidth = 2;
   ctx.strokeStyle = "red";
@@ -138,7 +139,7 @@ function drawMinuteHand(ctx: CanvasRenderingContext2D, minutes: number, seconds:
   ctx.translate(100, 100);
   ctx.rotate(angle);
   ctx.beginPath();
-  ctx.moveTo(0, 5);  // 分针稍微延伸到中心
+  ctx.moveTo(0, 5);
   ctx.lineTo(0, -50);
   ctx.lineWidth = 3;
   ctx.strokeStyle = "black";
@@ -154,7 +155,7 @@ function drawHourHand(ctx: CanvasRenderingContext2D, hours: number, minutes: num
   ctx.translate(100, 100);
   ctx.rotate(angle);
   ctx.beginPath();
-  ctx.moveTo(0, 5);  // 时针稍微延伸到中心
+  ctx.moveTo(0, 5);
   ctx.lineTo(0, -40);
   ctx.lineWidth = 4;
   ctx.strokeStyle = "black";
