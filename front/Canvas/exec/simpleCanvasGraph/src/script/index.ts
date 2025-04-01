@@ -1,8 +1,21 @@
+/***********************************************************************
+ * @fileoverview 简单画布图形绘制
+ * @author firefly
+ * @date 2025-04-01
+ * @version 1.0.0
+ * @license MIT
+ ***********************************************************************/
+
+
 import { Rect } from "../components/Rect";
 import { Shape } from "../components/Shape";
 
 const shapes: Shape[] = [];
 
+/**
+ * @description 初始化画布
+ * @return void
+ */
 export function init() {
     const canvas = document.querySelector<HTMLCanvasElement>("#graph");
     const color = document.querySelector<HTMLInputElement>("#color");
@@ -13,7 +26,7 @@ export function init() {
         color.onchange = (event) => {
             if (event.target) {
                 currentColor = (event.target as HTMLInputElement).value;
-            } 
+            }
         }
     }
 
@@ -48,7 +61,7 @@ export function init() {
                         // 清除画布并重绘所有形状
                         context.clearRect(0, 0, context.canvas.width, context.canvas.height);
                         shapes.forEach(shape => (shape as Rect).draw(context));
-                        currentRect.draw(context); 
+                        currentRect.draw(context);
                     }
                 }
             };
@@ -68,7 +81,14 @@ export function init() {
     }
 }
 
-// 计算矩形的位置和大小
+
+/**
+ * @description 计算矩形信息
+ * @param event 鼠标事件
+ * @param startX 起始X坐标
+ * @param startY 起始Y坐标
+ * @returns 计算后的矩形信息
+ */
 function calculateRect(event: MouseEvent, startX: number, startY: number) {
     const endX = event.offsetX;
     const endY = event.offsetY;

@@ -1,3 +1,11 @@
+/***********************************************************************
+ * @fileoverview 动态点和线
+ * @author firefly
+ * @date 2025-04-01
+ * @version 1.0.0
+ * @license MIT
+ ***********************************************************************/
+
 class Point {
   public x: number;
   public y: number;
@@ -71,7 +79,7 @@ export class CustomAnimation {
       for (let j = i + 1; j < this.points.length; j++) {
         const distance = Math.sqrt(
           Math.pow(this.points[i].x - this.points[j].x, 2) +
-            Math.pow(this.points[i].y - this.points[j].y, 2)
+          Math.pow(this.points[i].y - this.points[j].y, 2)
         );
 
         this.context.beginPath();
