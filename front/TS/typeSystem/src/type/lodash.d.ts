@@ -7,3 +7,5 @@ declare module "lodash" {
   // 自定义扩展方法：customGreet
   export function customGreet(name: string): string;
 }
+
+
