@@ -6,7 +6,7 @@ export function init() {
   if (!dial) throw new Error('Canvas not found');
 
   dial.style.backgroundColor = 'black';
-  dial.style.borderRadius = '10px';
+  dial.style.borderRadius = '35px';
 
   const ctx = dial.getContext("2d");
   const clockCtx = clock?.getContext("2d");
