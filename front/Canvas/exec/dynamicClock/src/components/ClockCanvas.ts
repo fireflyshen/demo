@@ -121,7 +121,7 @@ function drawMark(ctx: CanvasRenderingContext2D) {
     const numX = Math.cos(angle) * 70;
     const numY = Math.sin(angle) * 70;
 
-    ctx.font = "16px Arial";
+    ctx.font = "13px Arial";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
