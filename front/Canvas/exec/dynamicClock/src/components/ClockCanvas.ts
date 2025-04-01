@@ -29,17 +29,33 @@ export function init() {
 function animateClock(ctx: CanvasRenderingContext2D) {
 
 
+  //   function updateClock() {
+  //     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+  //     const date = new Date();
+  //     const hours = date.getHours();
+  //     const minutes = date.getMinutes();
+  //     const seconds = date.getSeconds();
+
+  //     // 仅绘制指针
+  //     drawHourHand(ctx, hours, minutes);
+  //     drawMinuteHand(ctx, minutes, seconds);
+  //     drawSecondHand(ctx, seconds);
+
+  //     requestAnimationFrame(updateClock);
+  //   }
+
   function updateClock() {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     const date = new Date();
     const hours = date.getHours();
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
+    const milliseconds = date.getMilliseconds();  // 获取毫秒
 
     // 仅绘制指针
     drawHourHand(ctx, hours, minutes);
     drawMinuteHand(ctx, minutes, seconds);
-    drawSecondHand(ctx, seconds);
+    drawSecondHand(ctx, seconds, milliseconds);  // 传递毫秒
 
     requestAnimationFrame(updateClock);
   }
@@ -116,8 +132,25 @@ function drawMark(ctx: CanvasRenderingContext2D) {
 }
 
 // 绘制秒针
-function drawSecondHand(ctx: CanvasRenderingContext2D, seconds: number) {
-  const angle = (Math.PI * 2 * seconds) / 60;
+// function drawSecondHand(ctx: CanvasRenderingContext2D, seconds: number) {
+//   const angle = (Math.PI * 2 * seconds) / 60;
+//   ctx.save();
+//   ctx.translate(100, 100);
+//   ctx.rotate(angle);
+//   ctx.beginPath();
+//   // 往下挪一点
+//   ctx.moveTo(0, 10);
+//   ctx.lineTo(0, -60);
+//   ctx.lineWidth = 2;
+//   ctx.strokeStyle = "red";
+//   ctx.stroke();
+//   ctx.closePath();
+//   ctx.restore();
+// }
+
+function drawSecondHand(ctx: CanvasRenderingContext2D, seconds: number, milliseconds: number) {
+  // 计算平滑秒针角度
+  const angle = (Math.PI * 2 * (seconds + milliseconds / 1000)) / 60;
   ctx.save();
   ctx.translate(100, 100);
   ctx.rotate(angle);
