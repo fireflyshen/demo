@@ -1,11 +1,11 @@
 {
     "compilerOptions": {
       "types": ["node"],
-      "module": "ESNext",
+      "module": "commonjs",
       "esModuleInterop": true,
       "moduleResolution": "node",
       "skipLibCheck": true,
-      "declaration": true
+      // "declaration": true
     }
   }
   
