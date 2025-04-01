@@ -16,19 +16,22 @@ jobs:
       # 通过矩阵来指定多个项目的部署
       matrix:
         include:
+          # 动态点线(canvas)
           - path: front/Canvas/exec/dynamicPointAndLine
             name: dynamic-point-and-line
-
+          # 简易画布图(canvas)
           - path: front/Canvas/exec/simpleCanvasGraph
             name: simple-canvas-graph
     steps:
+      # Checkout code
       - uses: actions/checkout@v4
 
+      # Setup 部署环境
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           # Wrangler cloudflare api token，存储到了仓库的secrets中
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # 需要部署的项目路径，使用矩阵变量，部署多个项目
           command: pages deploy ${{matrix.path}}/dist --project-name=${{ matrix.name }}
-
