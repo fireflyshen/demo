@@ -22,6 +22,10 @@ jobs:
           # 简易画布图(canvas)
           - path: front/Canvas/exec/simpleCanvasGraph
             name: simple-canvas-graph
+          # 画布时钟(canvas)
+          - path: front/Canvas/exec/dynamicClock
+            name: dynamic-clock
+
     steps:
       # Checkout code
       - uses: actions/checkout@v4
