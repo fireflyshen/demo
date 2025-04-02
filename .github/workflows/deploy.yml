@@ -28,6 +28,10 @@ jobs:
           # 井字棋(canvas)
           - path: front/Canvas/exec/ticTacToe
             name: tic-tac-toe
+          # 彩色环(canvas)
+          - path: front/Canvas/exec/colorfulRing
+            name: colorful-ring
+
 
     steps:
       # Checkout code
