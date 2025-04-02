@@ -5,6 +5,7 @@ interface grid {
   height: number;
   row: number;
   col: number;
+  state: State;
 }
 
 const canvasWidth = 300;
@@ -14,6 +15,11 @@ const grids = new Array<grid>()
 enum XorO {
   X = "X",
   O = "O"
+}
+
+enum State {
+  drawed = "drawed",
+  empty = "empty",
 }
 
 
@@ -47,7 +53,8 @@ export function init() {
         width: canvasWidth / 3,
         height: canvasHeight / 3,
         row: row,
-        col: col
+        col: col,
+        state: State.empty
       }
       grids.push(grid)
     }
@@ -86,6 +93,10 @@ export function init() {
     );
 
     if (clickedGrid) {
+      if (clickedGrid.state === State.drawed) {
+        return
+      }
+      clickedGrid.state = State.drawed
       ctx.fillStyle = "#000"
       ctx.font = "30px Arial"
       ctx.fillText(`${currentValue}`, clickedGrid.x + clickedGrid.width / 2 - 10, clickedGrid.y + clickedGrid.height / 2 + 10)
