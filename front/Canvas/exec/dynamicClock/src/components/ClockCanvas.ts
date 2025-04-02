@@ -17,6 +17,9 @@ export function init() {
 
   drawDial(ctx);
   drawCenter(ctx);
+
+
+
   drawMark(ctx);
 
   if (clockCtx) {
