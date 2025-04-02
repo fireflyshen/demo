@@ -50,12 +50,12 @@ function animateClock(ctx: CanvasRenderingContext2D) {
     const hours = date.getHours();
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
-    const milliseconds = date.getMilliseconds();  // 获取毫秒
+    const milliseconds = date.getMilliseconds();
 
     // 仅绘制指针
     drawHourHand(ctx, hours, minutes);
     drawMinuteHand(ctx, minutes, seconds);
-    drawSecondHand(ctx, seconds, milliseconds);  // 传递毫秒
+    drawSecondHand(ctx, seconds, milliseconds);
 
     requestAnimationFrame(updateClock);
   }
