@@ -61,7 +61,6 @@ export function init() {
       ctx.fillText(`${currentValue}`, clickedGrid.x + clickedGrid.width / 2 - 10, clickedGrid.y + clickedGrid.height / 2 + 10);
       const index = clickedGrid.row * 3 + clickedGrid.col;
       borad[index] = currentValue;
-
       if (checkWinning(borad, currentValue)) {
         drawWinningLine(ctx, checkWinning(borad, currentValue)!);
         setTimeout(() => {
