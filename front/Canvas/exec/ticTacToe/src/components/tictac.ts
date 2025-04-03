@@ -12,7 +12,7 @@ const canvasWidth = 300;
 const canvasHeight = 300;
 const grids = new Array<grid>()
 const winningCombos = generateWinningCombos(3);
-const qipan = new Array<XorO>();
+const borad = new Array<XorO>();
 
 enum XorO {
   X = "X",
@@ -68,9 +68,9 @@ export function init() {
       ctx.font = "30px Arial"
       ctx.fillText(`${currentValue}`, clickedGrid.x + clickedGrid.width / 2 - 10, clickedGrid.y + clickedGrid.height / 2 + 10)
       const index = clickedGrid.row * 3 + clickedGrid.col;
-      qipan[index] = currentValue;
-      if (!!checkWinning(qipan, currentValue)) {
-        drawWinningLine(ctx, checkWinning(qipan, currentValue)!)
+      borad[index] = currentValue;
+      if (!!checkWinning(borad, currentValue)) {
+        drawWinningLine(ctx, checkWinning(borad, currentValue)!)
         setTimeout(() => {
           alert(`${currentValue} wins!`)
           resetBoard(ctx)
@@ -137,7 +137,7 @@ function resetBoard(ctx: CanvasRenderingContext2D) {
   grids.forEach(cell => {
     cell.state = State.empty
   })
-  qipan.length = 0
+  borad.length = 0
   drawBorad(ctx)
 }
 
@@ -193,7 +193,7 @@ function checkWinning(qipan: XorO[], player: XorO): number[] | null {
   return combo || null;
 }
 
-
+// 画出胜利的线条
 function drawWinningLine(ctx: CanvasRenderingContext2D, combo: number[]) {
   const [start, , end] = combo;
 
