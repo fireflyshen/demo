@@ -26,85 +26,71 @@ enum State {
 
 
 export function init() {
-  const canvas = getElementById<HTMLCanvasElement>('#tictactoe')
-  const xRadio = getElementById<HTMLInputElement>('#x')
-  const oRadio = getElementById<HTMLInputElement>('#o')
-  let currentValue: XorO = XorO.X;
+  const xRadio = getElementById<HTMLInputElement>('#x');
+  const oRadio = getElementById<HTMLInputElement>('#o');
 
-  const ctx = canvas.getContext("2d")
-  if (!ctx) throw new Error('Context not found')
+  oRadio.disabled = true;
+  xRadio.disabled = true;
+  xRadio.checked = true; // 默认为 X
+  let currentValue: XorO = XorO.X;  // 当前值
 
-  canvas.style.border = "1px solid black"
+  const canvas = getElementById<HTMLCanvasElement>('#tictactoe');
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error('Context not found');
 
-  drawBorad(ctx)
+  canvas.style.border = "1px solid black";
+  drawBorad(ctx);
 
-  xRadio.addEventListener('change', () => {
-    // const radio = e.target as HTMLInputElement
-    currentValue = XorO.X
-
-  })
-
-  oRadio.addEventListener('change', () => {
-    currentValue = XorO.O
-  })
-
-
+  // 监听画布点击事件
   canvas.addEventListener('click', (e) => {
-    const rect = canvas.getBoundingClientRect()
+    const rect = canvas.getBoundingClientRect();
+    const x = Math.floor(e.clientX - rect.left);
+    const y = Math.floor(e.clientY - rect.top);
 
-    // 计算点击的位置，相对于canvas的位置
-    const x = Math.floor(e.clientX - rect.left)
-    const y = Math.floor(e.clientY - rect.top)
     const clickedGrid = grids.find(cell =>
       x >= cell.x && x <= cell.x + cell.width && y >= cell.y && y <= cell.y + cell.height
     );
 
     if (clickedGrid) {
       if (clickedGrid.state === State.drawed) {
-        return
+        return;
       }
-      clickedGrid.state = State.drawed
-      ctx.fillStyle = "#000"
-      ctx.font = "30px Arial"
-      ctx.fillText(`${currentValue}`, clickedGrid.x + clickedGrid.width / 2 - 10, clickedGrid.y + clickedGrid.height / 2 + 10)
+      clickedGrid.state = State.drawed;
+      ctx.fillStyle = "#000";
+      ctx.font = "30px Arial";
+      ctx.fillText(`${currentValue}`, clickedGrid.x + clickedGrid.width / 2 - 10, clickedGrid.y + clickedGrid.height / 2 + 10);
       const index = clickedGrid.row * 3 + clickedGrid.col;
       borad[index] = currentValue;
 
-      if (!!checkWinning(borad, currentValue)) {
-        drawWinningLine(ctx, checkWinning(borad, currentValue)!)
+      if (checkWinning(borad, currentValue)) {
+        drawWinningLine(ctx, checkWinning(borad, currentValue)!);
         setTimeout(() => {
-          alert(`${currentValue} wins!`)
-          resetBoard(ctx)
+          alert(`${currentValue} wins!`);
+          resetBoard(ctx);
         }, 0);
         return;
       }
 
       if (borad.every(cell => cell !== null)) {
-
         setTimeout(() => {
-          alert(`Draw!`)
-          resetBoard(ctx)
-          return;
+          alert(`Draw!`);
+          resetBoard(ctx);
         }, 0);
-
         return;
+      }
 
+      // 切换玩家
+      if (currentValue === XorO.X) {
+        currentValue = XorO.O;
+        xRadio.checked = false;
+        oRadio.checked = true;
+      } else {
+        currentValue = XorO.X;
+        xRadio.checked = true;
+        oRadio.checked = false;
       }
     }
-
-
-    if (currentValue === XorO.X) {
-      currentValue = XorO.O
-      xRadio.checked = false
-      oRadio.checked = true
-    } else {
-      currentValue = XorO.X
-      xRadio.checked = true
-      oRadio.checked = false
-    }
-
-  })
-
+  });
 }
 
 
