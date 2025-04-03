@@ -12,7 +12,7 @@ const canvasWidth = 300;
 const canvasHeight = 300;
 const grids = new Array<grid>()
 const winningCombos = generateWinningCombos(3);
-const borad = new Array<XorO>();
+const borad = new Array<XorO | null>(9).fill(null);
 
 enum XorO {
   X = "X",
@@ -69,6 +69,7 @@ export function init() {
       ctx.fillText(`${currentValue}`, clickedGrid.x + clickedGrid.width / 2 - 10, clickedGrid.y + clickedGrid.height / 2 + 10)
       const index = clickedGrid.row * 3 + clickedGrid.col;
       borad[index] = currentValue;
+
       if (!!checkWinning(borad, currentValue)) {
         drawWinningLine(ctx, checkWinning(borad, currentValue)!)
         setTimeout(() => {
@@ -76,6 +77,18 @@ export function init() {
           resetBoard(ctx)
         }, 0);
         return;
+      }
+
+      if (borad.every(cell => cell !== null)) {
+
+        setTimeout(() => {
+          alert(`Draw!`)
+          resetBoard(ctx)
+          return;
+        }, 0);
+
+        return;
+
       }
     }
 
@@ -137,7 +150,7 @@ function resetBoard(ctx: CanvasRenderingContext2D) {
   grids.forEach(cell => {
     cell.state = State.empty
   })
-  borad.length = 0
+  borad.fill(null)
   drawBorad(ctx)
 }
 
@@ -186,7 +199,7 @@ function generateWinningCombos(size: number) {
   return combos;
 }
 
-function checkWinning(qipan: XorO[], player: XorO): number[] | null {
+function checkWinning(qipan: (XorO | null)[], player: XorO): number[] | null {
   const combo = winningCombos.find(combo =>
     combo.every(index => qipan[index] === player)
   );
