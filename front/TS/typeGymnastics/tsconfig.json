@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "types": ["node"],
+      "module": "ES2015",
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "skipLibCheck": true,
+      // "declaration": true
+    }
+  }

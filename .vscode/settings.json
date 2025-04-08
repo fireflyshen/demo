@@ -1,5 +1,7 @@
 {
-    "editor.fontSize": 17,
-    "editor.fontLigatures": true,
-    "editor.fontFamily": "Maple Mono"
+  "editor.fontSize": 21,
+  "editor.lineHeight": 30,
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 100,
+  "editor.fontFamily": "Maple Mono"
 }
