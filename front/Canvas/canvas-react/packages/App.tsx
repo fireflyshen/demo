@@ -1,8 +1,8 @@
-import { getCanvasElementById } from "@canvas/utils";
+import { getCanvasElementById } from "packages/_utils";
 import "./app.scss"
 import { initCanvasStyle } from "./style";
 import { useEffect } from "react";
-import { colorfulRing } from "./canvas-colorful-ring/src/colorful-ring";
+import { colorfulRing } from "./exec/colorful-ring";
 // import { dynamicClock } from "./canvas-colorful-ring/src/dynamic-clock";
 function App() {
 
