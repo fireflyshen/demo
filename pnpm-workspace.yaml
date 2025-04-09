@@ -1,2 +1,3 @@
 packages:
-  - 'Front/Vue/*'
+  - 'front/Vue/*'
+  - "front/Canvas/*"
