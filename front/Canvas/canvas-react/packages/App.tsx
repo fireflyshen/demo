@@ -3,6 +3,7 @@ import "./app.scss"
 import { initCanvasStyle } from "./style";
 import { useEffect } from "react";
 import { colorfulRing } from "./canvas-colorful-ring/src/colorful-ring";
+import { ticTacToe } from "./canvas-colorful-ring/src/tic-tac-toe";
 // import { dynamicClock } from "./canvas-colorful-ring/src/dynamic-clock";
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
     initCanvasStyle(canvasElement,context);
 
     // dynamicClock(context);
-    colorfulRing(context);
+    // colorfulRing(context);
+    ticTacToe(context);
   });
   return (
     <>
